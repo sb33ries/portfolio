@@ -22,10 +22,15 @@ jobs:
       run: npm install
 
     - name: Build the project
-      run: npm run dev  # Assumes you have a build script in package.json
+      run: npm run build  # Assumes you have a build script in package.json
+
+    - name: Export the project
+      run: npm run export
 
     - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
+      uses: JamesIves/github-pages-deploy-action@v4.2.5
+      # uses: peaceiris/actions-gh-pages@v3
       with:
-        github_token: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        branch: gh-pages
+        # github_token: ${{ secrets.ACTIONS_DEPLOY_KEY }}
         publish_dir: ./dist  # Or your appropriate directory
