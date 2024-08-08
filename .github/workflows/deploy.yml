@@ -22,7 +22,7 @@ jobs:
       run: npm install
 
     - name: Build the project
-      run: npm run build  # Assumes you have a build script in package.json
+      run: npm run dev  # Assumes you have a build script in package.json
 
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
