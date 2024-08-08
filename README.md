@@ -1,12 +1,11 @@
-# Scrollable 3D Animation with Three.js
+# threejs-gltf-import
 
-- Watch the [full tutorial](https://youtu.be/Q7AOvWpIVHU) on YouTube
-- [Scrollable Three.js Animation](https://fireship.io/snippets/threejs-scrollbar-animation) Snippet
+Demo app for importing a .gltf model using Three.js
 
-## Usage
+## Demo
 
-```
-git clone <this-repo>
-npm install
-npm run dev
-```
+https://dgreenheck.github.io/threejs-gltf-import/
+
+## Tutorial
+
+Check out the [step-by-step tutorial](https://youtu.be/aOQuuotM-Ww) on my YouTube channel!
