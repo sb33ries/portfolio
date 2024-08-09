@@ -89,7 +89,6 @@ main {
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 12px;
-    height: 20px;
 }
 
 ::-webkit-scrollbar-thumb {
