@@ -58,6 +58,20 @@ function handleNavClick(event) {
     }, 200);
 }
 
+function applyTheme() {
+    // Apply background and font color to the body and header
+    document.body.style.backgroundColor = themes[currentTheme].background;
+    document.body.style.color = themes[currentTheme].font;
+    
+    const header = document.querySelector('header');
+    header.style.backgroundColor = themes[currentTheme].background;
+    header.style.color = themes[currentTheme].font;
+    
+    // Update scrollbar colors
+    document.documentElement.style.setProperty('--scrollbar-bg', themes[currentTheme].background);
+    document.documentElement.style.setProperty('--scrollbar-thumb', themes[currentTheme].font);
+}
+
 // Set random initial theme on page load
 setRandomInitialTheme();
 

@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 0;
     padding: 0;
     transition: background-color 0.5s, color 0.5s;
@@ -49,6 +49,19 @@ main {
     text-align: center;
 }
 
+#shinjer {
+    text-align: center;
+    font-size: 140px;
+    margin-top: 100px;
+    margin-bottom: 0px;
+}
+
+#li {
+    text-align: center;
+    font-size: 140px;
+    margin: 0;
+}
+
 #ripple-container {
     position: fixed;
     top: 0;
@@ -72,4 +85,26 @@ main {
         transform: scale(15);
         opacity: 0;
     }
+}
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+    height: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--scrollbar-thumb); /* Thumb color matches the font */
+    border-radius: 0; /* Rectangular shape */
+    border: 3px solid transparent; /* Space between the thumb and track */
+    background-clip: padding-box; /* Ensures thumb remains within bounds */
+}
+
+::-webkit-scrollbar-track {
+    background-color: var(--scrollbar-bg); /* Track color matches the background */
+}
+
+/* Firefox support */
+body {
+    scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-bg); /* Thumb color and track color */
+    scrollbar-width: thin;
 }
