@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Georgia, 'Times New Roman', Times, serif;
     margin: 0;
@@ -7,6 +11,9 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    position: relative; 
+    z-index: 0; 
+    height: 800vh;
 }
 
 header {
@@ -39,27 +46,109 @@ nav ul li a {
 
 main {
     flex-grow: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     padding: 80px 20px 20px;
+    position: relative;
 }
 
 #content {
     text-align: center;
+    position: relative;
+    /* z-index: 2; */
 }
 
 #shinjer {
-    text-align: center;
-    font-size: 140px;
-    margin-top: 100px;
-    margin-bottom: 0px;
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    font-size: 180px;
+    z-index: 1; /* Behind the rectangle but above the background */
+}
+#li {
+    position: fixed;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+    font-size: 180px;
+    z-index: 3; /* Behind the rectangle but above the background */
+}
+
+#shinjer {
+    top: 25%;
 }
 
 #li {
-    text-align: center;
-    font-size: 140px;
-    margin: 0;
+    top: 50%;
+}
+
+/*
+.highlight {
+    position: relative;
+    color: blue;
+    /* z-index: 5; Above the rectangle */
+
+
+#rect-one {
+    width: 300px; /* Set the width and height to be the same for a sphere */
+    height: 210px;
+    right: 0;
+    background-color: var(--first-rect-bg); /* Color of the sphere */
+    color: var(--first-rect-font);
+    position: relative; /* Ensures it is fixed to the right side of the screen */
+    top: 50%; /* Center vertically based on the top position */
+    transform: translateX(215%) translateY(170%); /* Center it vertically */
+    z-index: 2; /* Ensures the sphere covers the fixed text */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px; /* Padding inside the rectangle */
+    box-sizing: border-box;
+}
+
+.spacer {
+    height: 0px; /* Height of the space */
+}
+
+#rect-two {
+    margin-top: -250px;
+    width: 790px;
+    height: 500px;
+    right: 0;
+    background-color: var(--first-rect-bg);
+    color: var(--first-rect-font);
+    position: relative;
+    transform: translateX(50%) translateY(170%);
+    z-index: 4;
+    display: flex;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    box-sizing: border-box;
+    overflow: hidden; /* Hide content that overflows the container */
+    font-size: 20px;
+}
+
+.google-maps {
+    flex: 1;
+    height: 100%;
+    overflow: hidden; /* Ensure the image fits within its container */
+}
+
+.google-maps img {
+    width: 100%;
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Remove bottom space under the image */
+}
+
+.text-container {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px; /* Optional: Adjust spacing between image and text */
+    overflow: hidden; /* Hide overflow text if any */
+    text-align: center; /* Center text horizontally */
 }
 
 #ripple-container {
@@ -86,6 +175,7 @@ main {
         opacity: 0;
     }
 }
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 12px;
@@ -107,3 +197,4 @@ body {
     scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-bg); /* Thumb color and track color */
     scrollbar-width: thin;
 }
+

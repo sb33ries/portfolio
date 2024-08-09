@@ -67,9 +67,11 @@ function applyTheme() {
     header.style.backgroundColor = themes[currentTheme].background;
     header.style.color = themes[currentTheme].font;
     
-    // Update scrollbar colors
+    // Update colors
     document.documentElement.style.setProperty('--scrollbar-bg', themes[currentTheme].background);
     document.documentElement.style.setProperty('--scrollbar-thumb', themes[currentTheme].font);
+    document.documentElement.style.setProperty('--first-rect-bg', themes[currentTheme].background);
+    document.documentElement.style.setProperty('--first-rect-font', themes[currentTheme].font);
 }
 
 // Set random initial theme on page load
