@@ -368,7 +368,6 @@ main {
     top: 50%;
     left: 58%;
     transform: translateY(350%); 
-    /* transformY was 350% when relative */
     z-index: 6;
     display: flex;
     align-items: flex-end;
@@ -405,11 +404,6 @@ main {
     transition: background-color 0.5s, color 0.5s;
 }
 
-.scroll-container {
-    height: 100vh; /* Adjust as needed */
-    overflow-y: scroll;
-    scroll-behavior: smooth;
-}
 
 #ripple-container {
     position: fixed;

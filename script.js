@@ -123,16 +123,6 @@ function handleScroll() {
 // Add event listener for scroll
 window.addEventListener('scroll', handleScroll);
 
-window.addEventListener('scroll', function() {
-    const scrollPosition = window.scrollY;
-    const speedFactor = 0.5; // Adjust this value to control scroll speed; < 1 makes it faster
-    const box = document.getElementById('tribeties-box');
-
-    // Update the position
-    box.style.transform = `translateY(${scrollPosition * speedFactor}px) translateY(350%)`;
-});
-
-
 // Initial call to set correct positions
 handleScroll();
 
