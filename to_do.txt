@@ -1,5 +1,4 @@
-Fix changing colors
 java should ativate after every mouse release
 change ripples
 
-Make text fixed instead of entire box?
+Fix scroll from projects going up. There's like a small jump

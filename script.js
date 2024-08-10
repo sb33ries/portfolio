@@ -104,16 +104,16 @@ function handleScroll() {
         console.log('Resetting position to relative');
         rectThree.style.position = 'relative';
         rectThree.style.top = '50%';
-        rectThree.style.transform = 'translateX(-50%) translateY(95%)';
+        rectThree.style.transform = 'translateX(-50%) translateY(101%)';
         rectThree.style.zIndex = 5;
-        sparsityBox.style.transform = 'translateY(170%)';
+        sparsityBox.style.transform = 'translateY(150%)'; // Increase to move down
     } else if (rectThreeTop <= 0) {
         console.log('Setting position to fixed');
         rectThree.style.position = 'fixed';
         rectThree.style.top = `0px`;
         rectThree.style.transform = 'translateX(-50%) translateY(0%)';
         rectThree.style.zIndex = 5;
-        sparsityBox.style.transform = 'translateY(450%)';
+        sparsityBox.style.transform = 'translateY(375%)';
     }
 
     console.log('SUM OF VALUES:', initialSumValue);
@@ -122,6 +122,16 @@ function handleScroll() {
 
 // Add event listener for scroll
 window.addEventListener('scroll', handleScroll);
+
+window.addEventListener('scroll', function() {
+    const scrollPosition = window.scrollY;
+    const speedFactor = 0.5; // Adjust this value to control scroll speed; < 1 makes it faster
+    const box = document.getElementById('tribeties-box');
+
+    // Update the position
+    box.style.transform = `translateY(${scrollPosition * speedFactor}px) translateY(350%)`;
+});
+
 
 // Initial call to set correct positions
 handleScroll();

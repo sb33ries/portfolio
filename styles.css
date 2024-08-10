@@ -34,7 +34,7 @@ header::after {
     height: 1.5px; /* Adjust the height of the line */
     background-color: var(--first-rect-font); /* Adjust the color of the line */
     transform: scaleY(0); /* Initially hide the line */
-    transition: transform 0.5s; /* Smooth transition */
+    transition: background-color 0.5s, color 0.5s; /* Smooth transition */
     z-index: -1; /* Place it behind other header content */
 }
 
@@ -131,6 +131,7 @@ main {
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 20px; /* Padding inside the rectangle */
     box-sizing: border-box;
+    transition: background-color 0.5s, color 0.5s;
 }
 
 .spacer {
@@ -156,6 +157,7 @@ main {
     text-align: left;
     justify-content: flex-start;
     align-items: flex-start; 
+    transition: background-color 0.5s, color 0.5s;
 }
 
 #rect-two::before {
@@ -167,6 +169,7 @@ main {
     background-color: var(--first-rect-font); /* Adjust color as needed */
     transform: translateX(-50%);
     top: 0;
+    transition: background-color 0.5s, color 0.5s;
 }
 
 
@@ -208,6 +211,7 @@ main {
     align-items: center;
     justify-content: center;
     font-size: 80px;
+    transition: background-color 0.5s, color 0.5s;
 }
 
 #rect-three::before {
@@ -221,14 +225,14 @@ main {
 }
 
 #sparsity-box {
-    width: 410px;
-    height: 300px;
+    width: 470px;
+    height: 370px;
     background-color: var(--first-rect-bg);
     color: var(--first-rect-font);
     position: relative;
     top: 50%;
-    left: 10%;
-    transform: translateY(300%);
+    left: 8%;
+    /* transform: translateY(300%); */
     z-index: 6;
     display: flex;
     align-items: flex-end;
@@ -238,6 +242,7 @@ main {
     padding-left: 20px;
     box-sizing: border-box;
     overflow: hidden;
+    transition: background-color 0.5s, color 0.5s;
 }
 
 #sparsity-box::before {
@@ -247,7 +252,7 @@ main {
     left: 0;
     right: 0;
     height: 80%; /* Adjust this value to control the image height */
-    background: url('protein.png') no-repeat center center;
+    background: url('tsne.png') no-repeat center center;
     background-size: cover;
     z-index: -1;
 }
@@ -261,6 +266,149 @@ main {
     height: 1.5px;
     background-color: var(--first-rect-font); /* Use the font color for the line */
     z-index: 1;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+#pottery-box {
+    width: 410px;
+    height: 300px;
+    background-color: var(--first-rect-bg);
+    color: var(--first-rect-font);
+    position: relative;
+    top: 50%;
+    left: 63%;
+    transform: translateY(400%);
+    z-index: 6;
+    display: flex;
+    align-items: flex-end;
+    justify-content: left;
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+    padding: 10px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+#pottery-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80%; /* Adjust this value to control the image height */
+    background: url('pottery.jpg') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+}
+
+#pottery-box::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: var(--first-rect-font); /* Use the font color for the line */
+    z-index: 1;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+#mdsim-box {
+    width: 410px;
+    height: 300px;
+    background-color: var(--first-rect-bg);
+    color: var(--first-rect-font);
+    position: relative;
+    top: 50%;
+    left: 17%;
+    transform: translateY(420%);
+    z-index: 6;
+    display: flex;
+    align-items: flex-end;
+    justify-content: left;
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+    padding: 10px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+#mdsim-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80%; /* Adjust this value to control the image height */
+    background: url('protein.png') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+}
+
+#mdsim-box::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: var(--first-rect-font); /* Use the font color for the line */
+    z-index: 1;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+#tribeties-box {
+    width: 410px;
+    height: 300px;
+    background-color: var(--first-rect-bg);
+    color: var(--first-rect-font);
+    position: relative;
+    top: 50%;
+    left: 58%;
+    transform: translateY(350%); 
+    /* transformY was 350% when relative */
+    z-index: 6;
+    display: flex;
+    align-items: flex-end;
+    justify-content: left;
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+    padding: 10px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+#tribeties-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80%; /* Adjust this value to control the image height */
+    background: url('tribeties.png') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+}
+
+#tribeties-box::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: var(--first-rect-font); /* Use the font color for the line */
+    z-index: 1;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.scroll-container {
+    height: 100vh; /* Adjust as needed */
+    overflow-y: scroll;
+    scroll-behavior: smooth;
 }
 
 #ripple-container {
