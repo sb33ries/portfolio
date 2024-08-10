@@ -1,0 +1,3 @@
+Fix changing colors
+java should ativate after every mouse release
+change ripples

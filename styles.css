@@ -27,22 +27,31 @@ header {
 
 nav ul {
     list-style-type: none;
-    padding: 0;
-    margin: 0;
+    padding: 0 0 0 -40px;
+    margin: 12px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 nav ul li {
-    margin: 0 15px;
+    margin: 0 2px; /* Reduced margin to bring headers closer together */
+}
+
+nav ul li:not(:last-child)::after {
+    content: " | "; /* Adds the | separator after each list item except the last */
+    margin-left: 2px; /* Adjust the space between the text and the | */
+    margin-right: 2px; /* Adjust the space after the | */
 }
 
 nav ul li a {
     text-decoration: none;
     color: inherit;
-    padding: 15px 10px;
+    padding: 15px 0px;
     display: inline-block;
+    font-size: 14px; /* Adjusts the font size */
 }
+
+
 
 main {
     flex-grow: 1;
@@ -63,7 +72,11 @@ main {
     margin: 0;
     font-size: 180px;
     z-index: 1; /* Behind the rectangle but above the background */
+    top: 25%;
+    /* color: transparent; */
+    -webkit-text-stroke: 0px var(--first-rect-font); /* Adds a black outline to the text */
 }
+
 #li {
     position: fixed;
     left: 50%;
@@ -71,15 +84,11 @@ main {
     margin: 0;
     font-size: 180px;
     z-index: 3; /* Behind the rectangle but above the background */
-}
-
-#shinjer {
-    top: 25%;
-}
-
-#li {
     top: 50%;
+    /* color: transparent; */
+    -webkit-text-stroke: 0px var(--first-rect-font); /* Adds a black outline to the text */
 }
+
 
 /*
 .highlight {
@@ -100,7 +109,7 @@ main {
     z-index: 2; /* Ensures the sphere covers the fixed text */
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: justify;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     padding: 20px; /* Padding inside the rectangle */
     box-sizing: border-box;
@@ -121,12 +130,27 @@ main {
     transform: translateX(50%) translateY(170%);
     z-index: 4;
     display: flex;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
     padding: 20px;
     box-sizing: border-box;
     overflow: hidden; /* Hide content that overflows the container */
     font-size: 20px;
+    text-align: left;
+    justify-content: flex-start;
+    align-items: flex-start; 
 }
+
+#rect-two::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 100vw;
+    height: 1px;
+    background-color: var(--first-rect-font); /* Adjust color as needed */
+    transform: translateX(-50%);
+    top: 0;
+}
+
 
 .google-maps {
     flex: 1;
@@ -135,7 +159,7 @@ main {
 }
 
 .google-maps img {
-    width: 100%;
+    width: 110%;
     height: auto; /* Maintain aspect ratio */
     display: block; /* Remove bottom space under the image */
 }
@@ -149,6 +173,32 @@ main {
     padding-left: 20px; /* Optional: Adjust spacing between image and text */
     overflow: hidden; /* Hide overflow text if any */
     text-align: center; /* Center text horizontally */
+}
+
+#rect-three {
+    width: 900px;
+    height: 700px;
+    background-color: var(--first-rect-bg);
+    color: var(--first-rect-font);
+    position: relative; /* Initial position */
+    top: 50%; 
+    left: 50%;
+    transform: translateX(-50%) translateY(114%);
+    z-index: 5;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    transition: transform 0.3s ease-out;
+}
+#rect-three::before {
+    content: '';
+    position: absolute;
+    left: -12%;
+    width: 92vw;
+    height: 1px;
+    background-color: var(--first-rect-font);
+    top: 0;
 }
 
 #ripple-container {

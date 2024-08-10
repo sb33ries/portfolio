@@ -74,6 +74,27 @@ function applyTheme() {
     document.documentElement.style.setProperty('--first-rect-font', themes[currentTheme].font);
 }
 
+function handleScroll() {
+    const rectThree = document.getElementById('rect-three');
+    const header = document.querySelector('header');
+    const rectThreeTop = rectThree.getBoundingClientRect().top;
+    const headerBottom = header.getBoundingClientRect().bottom;
+
+    if (rectThreeTop <= headerBottom && rectThreeTop > 0) {
+        // Make rect-three fixed when its top is within the viewport but below the header
+        rectThree.style.position = 'fixed';
+        rectThree.style.top = `${headerBottom}px`;
+        rectThree.style.transform = 'translateX(-50%) translateY(0)';
+    } else {
+        // Reset rect-three to its original position
+        rectThree.style.position = 'relative';
+        rectThree.style.top = '50%';
+        rectThree.style.transform = 'translateX(-50%) translateY(114%)';
+    }
+}
+// Add the scroll event listener
+window.addEventListener('scroll', handleScroll);
+
 // Set random initial theme on page load
 setRandomInitialTheme();
 
