@@ -189,8 +189,8 @@ main {
     align-items: center;
     justify-content: center;
     padding: 20px;
-    transition: transform 0.3s ease-out;
 }
+
 #rect-three::before {
     content: '';
     position: absolute;

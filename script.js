@@ -74,24 +74,39 @@ function applyTheme() {
     document.documentElement.style.setProperty('--first-rect-font', themes[currentTheme].font);
 }
 
+let initialSumValue = null;
+
 function handleScroll() {
     const rectThree = document.getElementById('rect-three');
     const header = document.querySelector('header');
     const rectThreeTop = rectThree.getBoundingClientRect().top;
     const headerBottom = header.getBoundingClientRect().bottom;
 
-    if (rectThreeTop <= headerBottom && rectThreeTop > 0) {
-        // Make rect-three fixed when its top is within the viewport but below the header
-        rectThree.style.position = 'fixed';
-        rectThree.style.top = `${headerBottom}px`;
-        rectThree.style.transform = 'translateX(-50%) translateY(0)';
-    } else {
-        // Reset rect-three to its original position
+    // Debugging logs
+    console.log('rectThreeTop:', rectThreeTop);
+    console.log('headerBottom:', headerBottom);
+    console.log('window.scrollY:', window.scrollY);
+
+    if (initialSumValue === null) {
+        initialSumValue = rectThreeTop + window.scrollY;
+    }
+
+    if (window.scrollY < initialSumValue) {
+        console.log('Resetting position to relative');
         rectThree.style.position = 'relative';
         rectThree.style.top = '50%';
         rectThree.style.transform = 'translateX(-50%) translateY(114%)';
+    } else if (rectThreeTop <= 0) {
+        console.log('Setting position to fixed');
+        rectThree.style.position = 'fixed';
+        rectThree.style.top = `0px`;
+        rectThree.style.transform = 'translateX(-50%) translateY(0%)';
     }
+    
+
+    console.log('SUM OF VALUES:', initialSumValue);
 }
+
 // Add the scroll event listener
 window.addEventListener('scroll', handleScroll);
 
