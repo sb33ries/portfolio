@@ -95,7 +95,7 @@ function handleScroll() {
         console.log('Resetting position to relative');
         rectThree.style.position = 'relative';
         rectThree.style.top = '50%';
-        rectThree.style.transform = 'translateX(-50%) translateY(114%)';
+        rectThree.style.transform = 'translateX(-50%) translateY(95%)';
     } else if (rectThreeTop <= 0) {
         console.log('Setting position to fixed');
         rectThree.style.position = 'fixed';
@@ -116,6 +116,17 @@ setRandomInitialTheme();
 // Add click event listeners
 document.body.addEventListener('click', changeTheme);
 document.querySelector('header').addEventListener('click', changeTheme);
+
+document.addEventListener('scroll', function() {
+    const header = document.querySelector('header');
+    const scrollTop = window.scrollY;
+
+    if (scrollTop > 650) { // Adjust the value as needed
+        header.classList.add('scrolled');
+    } else {
+        header.classList.remove('scrolled');
+    }
+});
 
 // Add click event listeners to navigation links
 const navLinks = document.querySelectorAll('nav a');

@@ -25,6 +25,24 @@ header {
     transition: background-color 0.5s, color 0.5s;
 }
 
+header::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 5%;
+    width: 90%;
+    height: 1.5px; /* Adjust the height of the line */
+    background-color: var(--first-rect-font); /* Adjust the color of the line */
+    transform: scaleY(0); /* Initially hide the line */
+    transition: transform 0.5s; /* Smooth transition */
+    z-index: -1; /* Place it behind other header content */
+}
+
+header.scrolled::after {
+    transform: scaleY(1); /* Show the line when scrolled */
+}
+
+
 nav ul {
     list-style-type: none;
     padding: 0 0 0 -40px;
@@ -116,7 +134,7 @@ main {
 }
 
 .spacer {
-    height: 0px; /* Height of the space */
+    height: -100px; /* Height of the space */
 }
 
 #rect-two {
@@ -176,26 +194,27 @@ main {
 }
 
 #rect-three {
-    width: 900px;
+    padding-top: 190px;
+    width: 1200px;
     height: 700px;
     background-color: var(--first-rect-bg);
     color: var(--first-rect-font);
     position: relative; /* Initial position */
     top: 50%; 
     left: 50%;
-    transform: translateX(-50%) translateY(114%);
+    transform: translateX(-50%) translateY(95%);
     z-index: 5;
-    display: flex;
+    display: block;
     align-items: center;
     justify-content: center;
-    padding: 20px;
+    font-size: 60px;
 }
 
 #rect-three::before {
     content: '';
     position: absolute;
-    left: -12%;
-    width: 92vw;
+    left: 2.5%;
+    width: 95%;
     height: 1px;
     background-color: var(--first-rect-font);
     top: 0;
