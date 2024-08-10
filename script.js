@@ -1,10 +1,16 @@
 const themes = [
-    { background: '#F8E9E9', font: '#2C3E50' },
-    { background: '#E9F8F1', font: '#34495E' },
-    { background: '#E9EDF8', font: '#8E44AD' },
-    { background: '#F8F3E9', font: '#16A085' },
-    { background: '#F1E9F8', font: '#D35400' }
+    { background: '#F3C4C4', font: '#282B29' }, 
+    { background: '#EBEDED', font: '#E83C38' },
+    { background: '#00A19A', font: '#EBEDED' },
+    { background: '#A6D1C9', font: '#E83C38' },
+    { background: '#282B29', font: '#A6D1C9' }
 ];
+
+// pink black
+// white red
+// blue white
+// turq red
+// gray blue
 
 let currentTheme;
 
@@ -78,6 +84,8 @@ let initialSumValue = null;
 
 function handleScroll() {
     const rectThree = document.getElementById('rect-three');
+    const sparsityBox = document.getElementById('sparsity-box');
+    const sparsityTop = sparsityBox.getBoundingClientRect().top;
     const header = document.querySelector('header');
     const rectThreeTop = rectThree.getBoundingClientRect().top;
     const headerBottom = header.getBoundingClientRect().bottom;
@@ -91,24 +99,32 @@ function handleScroll() {
         initialSumValue = rectThreeTop + window.scrollY;
     }
 
+    // Handle rect-three positioning
     if (window.scrollY < initialSumValue) {
         console.log('Resetting position to relative');
         rectThree.style.position = 'relative';
         rectThree.style.top = '50%';
         rectThree.style.transform = 'translateX(-50%) translateY(95%)';
+        rectThree.style.zIndex = 5;
+        sparsityBox.style.transform = 'translateY(170%)';
     } else if (rectThreeTop <= 0) {
         console.log('Setting position to fixed');
         rectThree.style.position = 'fixed';
         rectThree.style.top = `0px`;
         rectThree.style.transform = 'translateX(-50%) translateY(0%)';
+        rectThree.style.zIndex = 5;
+        sparsityBox.style.transform = 'translateY(450%)';
     }
-    
 
     console.log('SUM OF VALUES:', initialSumValue);
+    console.log('- Sparsity Top:', sparsityTop);
 }
 
-// Add the scroll event listener
+// Add event listener for scroll
 window.addEventListener('scroll', handleScroll);
+
+// Initial call to set correct positions
+handleScroll();
 
 // Set random initial theme on page load
 setRandomInitialTheme();

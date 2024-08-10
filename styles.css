@@ -194,12 +194,12 @@ main {
 }
 
 #rect-three {
-    padding-top: 190px;
+    padding-top: 130px;
     width: 1200px;
     height: 700px;
     background-color: var(--first-rect-bg);
     color: var(--first-rect-font);
-    position: relative; /* Initial position */
+    position: relative;
     top: 50%; 
     left: 50%;
     transform: translateX(-50%) translateY(95%);
@@ -207,7 +207,7 @@ main {
     display: block;
     align-items: center;
     justify-content: center;
-    font-size: 60px;
+    font-size: 80px;
 }
 
 #rect-three::before {
@@ -218,6 +218,49 @@ main {
     height: 1px;
     background-color: var(--first-rect-font);
     top: 0;
+}
+
+#sparsity-box {
+    width: 410px;
+    height: 300px;
+    background-color: var(--first-rect-bg);
+    color: var(--first-rect-font);
+    position: relative;
+    top: 50%;
+    left: 10%;
+    transform: translateY(300%);
+    z-index: 6;
+    display: flex;
+    align-items: flex-end;
+    justify-content: left;
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+    padding: 10px;
+    padding-left: 20px;
+    box-sizing: border-box;
+    overflow: hidden;
+}
+
+#sparsity-box::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80%; /* Adjust this value to control the image height */
+    background: url('protein.png') no-repeat center center;
+    background-size: cover;
+    z-index: -1;
+}
+
+#sparsity-box::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1.5px;
+    background-color: var(--first-rect-font); /* Use the font color for the line */
+    z-index: 1;
 }
 
 #ripple-container {
