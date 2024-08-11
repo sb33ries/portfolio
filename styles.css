@@ -34,7 +34,8 @@ header::after {
     height: 1.5px; /* Adjust the height of the line */
     background-color: var(--first-rect-font); /* Adjust the color of the line */
     transform: scaleY(0); /* Initially hide the line */
-    transition: background-color 0.5s, color 0.5s; /* Smooth transition */
+    transform-origin: bottom;
+    transition: transform 0.3s ease; /* Smooth transition */
     z-index: -1; /* Place it behind other header content */
 }
 
@@ -457,7 +458,7 @@ main {
 }
 
 
-
+/* Ripple container */
 #ripple-container {
     position: fixed;
     top: 0;
@@ -468,25 +469,48 @@ main {
     z-index: 999;
 }
 
-.ripple {
+/* Inner ripple circle */
+.ripple-inner {
     position: absolute;
     border: 2px solid;
     border-radius: 50%;
-    animation: ripple-effect 0.5s linear;
-    opacity: 0.5;
+    animation: ripple-inner-effect 0.6s ease-out;
+    opacity: 1; /* Higher opacity */
+    background: none; /* No fill */
 }
 
-@keyframes ripple-effect {
+/* Outer ripple circle */
+.ripple-outer {
+    position: absolute;
+    border: 2px solid;
+    border-radius: 50%;
+    animation: ripple-outer-effect 0.6s ease-out;
+    opacity: 0.5; /* Lower opacity */
+    background: none; /* No fill */
+}
+
+/* Keyframes for inner ripple */
+@keyframes ripple-inner-effect {
     to {
-        transform: scale(15);
+        transform: scale(10); /* Smaller scale */
         opacity: 0;
     }
 }
+
+/* Keyframes for outer ripple */
+@keyframes ripple-outer-effect {
+    to {
+        transform: scale(20); /* Larger scale */
+        opacity: 0;
+    }
+}
+
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 12px;
     transition: background-color 0.5s, border 0.5s;
+    z-index: -1;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -494,12 +518,12 @@ main {
     border-radius: 0; /* Rectangular shape */
     border: 3px solid transparent; /* Space between the thumb and track */
     background-clip: padding-box; /* Ensures thumb remains within bounds */
-    transition: background-color 0.5s, border 0.5s;
 }
 
 ::-webkit-scrollbar-track {
-    background-color: var(--scrollbar-bg); /* Track color matches the background */
+    background-color: transparent; /* Track color matches the background */
     transition: background-color 0.5s, border 0.5s;
+    z-index: -1;
 }
 
 /* Firefox support */
@@ -522,7 +546,8 @@ body {
 }
 
 .marquee-container {
-    width: 100%;
+    width: 94%;
+    left: 3%;
     height: 100px;
     position: relative;
     overflow: hidden;

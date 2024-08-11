@@ -1,8 +1,6 @@
-java should ativate after every mouse release
-change ripples
-Fix track color changing
+change ripples?
+Fix track background transition and z-index.
 
 Fix scroll from projects going up. There's like a small jump in the scroll bar now
-Fix the welcome animation
 Add a loading screen
 Make the Learn more work for rect-two

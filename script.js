@@ -37,19 +37,49 @@ function applyTheme() {
 }
 
 function createRipple(event) {
-    const ripple = document.createElement('div');
-    ripple.classList.add('ripple');
-    ripple.style.left = `${event.clientX}px`;
-    ripple.style.top = `${event.clientY}px`;
-    ripple.style.borderColor = themes[currentTheme].font;
-    
+    // Create inner ripple
+    const rippleInner = document.createElement('div');
+    rippleInner.classList.add('ripple-inner');
+    rippleInner.style.left = `${event.clientX}px`;
+    rippleInner.style.top = `${event.clientY}px`;
+    rippleInner.style.borderColor = themes[currentTheme].font;
+
+    // Create outer ripple
+    const rippleOuter = document.createElement('div');
+    rippleOuter.classList.add('ripple-outer');
+    rippleOuter.style.left = `${event.clientX}px`;
+    rippleOuter.style.top = `${event.clientY}px`;
+    rippleOuter.style.borderColor = themes[currentTheme].font;
+
     const rippleContainer = document.getElementById('ripple-container');
-    rippleContainer.appendChild(ripple);
-    
-    ripple.addEventListener('animationend', () => {
-        ripple.remove();
+    rippleContainer.appendChild(rippleInner);
+    rippleContainer.appendChild(rippleOuter);
+
+    // Function to update ripple position
+    function followCursor(e) {
+        rippleInner.style.left = `${e.clientX}px`;
+        rippleInner.style.top = `${e.clientY}px`;
+        rippleOuter.style.left = `${e.clientX}px`;
+        rippleOuter.style.top = `${e.clientY}px`;
+    }
+
+    // Attach the mousemove event listener
+    document.addEventListener('mousemove', followCursor);
+
+    // Remove ripple and event listener when animation ends
+    rippleInner.addEventListener('animationend', () => {
+        rippleInner.remove();
+        document.removeEventListener('mousemove', followCursor);
+    });
+
+    rippleOuter.addEventListener('animationend', () => {
+        rippleOuter.remove();
+        document.removeEventListener('mousemove', followCursor);
     });
 }
+
+
+
 
 function handleNavClick(event) {
     // Prevent default link behavior
