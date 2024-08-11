@@ -13,7 +13,7 @@ body {
     flex-direction: column;
     position: relative; 
     z-index: 0; 
-    height: 550vh;
+    height: 500vh;
 }
 
 header {
@@ -143,7 +143,11 @@ main {
 }
 
 .spacer3 {
-    height: 100px; /* Height of the space */
+    height: 70px; /* Height of the space */
+}
+
+.spacer4 {
+    height: 10px; /* Height of the space */
 }
 
 #rect-two {
@@ -157,16 +161,28 @@ main {
     transform: translateX(50%) translateY(30%);
     z-index: 4;
     display: flex;
-    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
     padding: 20px;
     box-sizing: border-box;
     overflow: hidden; /* Hide content that overflows the container */
     font-size: 20px;
     text-align: left;
-    justify-content: flex-start;
-    align-items: right; 
+    justify-content: space-between; /* Distribute space between the map and text */
+    align-items: center;
     transition: background-color 0.5s, color 0.5s;
 }
+
+.text-container3 {
+    margin-left: auto; /* Push the text container to the right */
+    width: 50%; /* Make the text container take up the right half */
+    text-align: left; /* Center the text within its container */
+}
+
+/* Adjust the start position of the text */
+.text-container3 p {
+    margin-right: 20px; /* Control how far right the text starts appearing */
+    line-height: 1.5; /* Adjust line height if needed */
+}
+
 
 #rect-two::before {
     content: '';
@@ -415,7 +431,7 @@ main {
 #rect-four {
     padding-top: 130px;
     width: 1200px;
-    height: 700px;
+    height: 680px;
     background-color: var(--first-rect-bg);
     color: var(--first-rect-font);
     position: relative;
@@ -470,6 +486,7 @@ main {
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
     width: 12px;
+    transition: background-color 0.5s, border 0.5s;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -477,26 +494,18 @@ main {
     border-radius: 0; /* Rectangular shape */
     border: 3px solid transparent; /* Space between the thumb and track */
     background-clip: padding-box; /* Ensures thumb remains within bounds */
+    transition: background-color 0.5s, border 0.5s;
 }
 
 ::-webkit-scrollbar-track {
     background-color: var(--scrollbar-bg); /* Track color matches the background */
+    transition: background-color 0.5s, border 0.5s;
 }
 
 /* Firefox support */
 body {
     scrollbar-color: var(--scrollbar-thumb) var(--scrollbar-bg); /* Thumb color and track color */
     scrollbar-width: thin;
-}
-
-.moving-text {
-    position: relative;
-    width: 100%;
-    height: 100px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
 }
 
 .line1, .line2 {
@@ -512,33 +521,39 @@ body {
     height: 2px;
 }
 
-.text-container {
-    display: flex;
-    white-space: nowrap;
-    overflow: hidden;
+.marquee-container {
     width: 100%;
+    height: 100px;
     position: relative;
+    overflow: hidden;
+    background-color: var(--first-rect-bg);
+    transform: translateY(-7%);
+    border-top: 2px solid var(--first-rect-font);
+    border-bottom: 2px solid var(--first-rect-font);
+    font-size: 18px;
+    transition: background-color 0.5s, border 0.5s;
 }
 
-.text-group {
+.marquee {
     display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
     white-space: nowrap;
-    animation: moveText 15s linear infinite;
-    width: max-content; /* Ensure the text-group takes the minimum required width */
+    animation: marquee 45s linear infinite;
 }
-
-.text {
-    font-size: 40px;
-    font-weight: bold;
-    padding: 0 50px;
+.marquee span {
+    display: inline-block;
+    padding: 35px 40px;
+    padding-top: 20px;
+    padding-bottom: 25px;
+    font-size: 3em;
 }
-
-@keyframes moveText {
-    from {
+@keyframes marquee {
+    0% {
         transform: translateX(0);
     }
-    to {
-        transform: translateX(-100%);
+    100% {
+        transform: translateX(-50%);
     }
 }
-

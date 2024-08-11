@@ -162,8 +162,9 @@ handleScroll();
 setRandomInitialTheme();
 
 // Add click event listeners
-document.body.addEventListener('click', changeTheme);
-document.querySelector('header').addEventListener('click', changeTheme);
+document.addEventListener('mouseup', changeTheme);
+document.querySelector('header').addEventListener('mouseup', changeTheme);
+
 
 document.addEventListener('scroll', function() {
     const header = document.querySelector('header');
