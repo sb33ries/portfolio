@@ -1,4 +1,6 @@
 java should ativate after every mouse release
 change ripples
 
-Fix scroll from projects going up. There's like a small jump
+Fix scroll from projects going up. There's like a small jump in the scroll bar now
+Fix the welcome animation
+Fix text in rect 2

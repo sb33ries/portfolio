@@ -135,21 +135,21 @@ function handleScroll() {
     }
 
     // Handle rect-four positioning
-    if (window.scrollY < currentSumValue4) {
-        console.log('Resetting position to relative');
-        rectFour.style.position = 'relative';
-        rectFour.style.top = '50%';
-        rectFour.style.transform = 'translateX(-50%) translateY(100%)';
-        rectFour.style.zIndex = 7;
-        // sparsityBox.style.transform = 'translateY(150%)'; // Increase to move down
-    } else if (rectFourTop <= 0) {
-        console.log('Setting position to fixed');
-        rectFour.style.position = 'fixed';
-        rectFour.style.top = `0px`;
-        rectFour.style.transform = 'translateX(-50%) translateY(0%)';
-        rectFour.style.zIndex = 7;
-        // sparsityBox.style.transform = 'translateY(375%)';
-    }
+    // if (window.scrollY < currentSumValue4) {
+    //     console.log('Resetting position to relative');
+    //     rectFour.style.position = 'relative';
+    //     rectFour.style.top = '50%';
+    //     rectFour.style.transform = 'translateX(-50%) translateY(100%)';
+    //     rectFour.style.zIndex = 7;
+    //     // sparsityBox.style.transform = 'translateY(150%)'; // Increase to move down
+    // } else if (rectFourTop <= 0) {
+    //     console.log('Setting position to fixed');
+    //     rectFour.style.position = 'fixed';
+    //     rectFour.style.top = `0px`;
+    //     rectFour.style.transform = 'translateX(-50%) translateY(0%)';
+    //     rectFour.style.zIndex = 7;
+    //     // sparsityBox.style.transform = 'translateY(375%)';
+    // }
 }
 
 // Add event listener for scroll
