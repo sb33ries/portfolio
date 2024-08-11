@@ -80,44 +80,76 @@ function applyTheme() {
     document.documentElement.style.setProperty('--first-rect-font', themes[currentTheme].font);
 }
 
-let initialSumValue = null;
+let initialRectThreeTop = null;
+let initialRectFourTop = null;
+let initialPositionsSet = false;
 
 function handleScroll() {
     const rectThree = document.getElementById('rect-three');
+    const rectThreeTop = rectThree.getBoundingClientRect().top;
+    
+    const rectFour = document.getElementById('rect-four');
+    const rectFourTop = rectFour.getBoundingClientRect().top;
+
     const sparsityBox = document.getElementById('sparsity-box');
     const sparsityTop = sparsityBox.getBoundingClientRect().top;
+
     const header = document.querySelector('header');
-    const rectThreeTop = rectThree.getBoundingClientRect().top;
     const headerBottom = header.getBoundingClientRect().bottom;
+
+    // Set initial positions only once after scrolling past 90px
+    if (window.scrollY > 90 && !initialPositionsSet) {
+        initialRectThreeTop = rectThreeTop + window.scrollY;
+        initialRectFourTop = rectFourTop + window.scrollY;
+        initialPositionsSet = true;
+    }
+
+    // Calculate current sums
+    const currentSumValue3 = initialPositionsSet ? initialRectThreeTop : null;
+    const currentSumValue4 = initialPositionsSet ? initialRectFourTop : null;
 
     // Debugging logs
     console.log('rectThreeTop:', rectThreeTop);
+    // console.log('rectFourTop:', rectFourTop);
     console.log('headerBottom:', headerBottom);
     console.log('window.scrollY:', window.scrollY);
-
-    if (initialSumValue === null) {
-        initialSumValue = rectThreeTop + window.scrollY;
-    }
+    console.log('SUM OF VALUES3:', currentSumValue3);
+    // console.log('SUM OF VALUES4:', currentSumValue4);
+    console.log('- Sparsity Top:', sparsityTop);
 
     // Handle rect-three positioning
-    if (window.scrollY < initialSumValue) {
-        console.log('Resetting position to relative');
+    if (window.scrollY < currentSumValue3 + 130) {
+        // console.log('Resetting position to relative');
         rectThree.style.position = 'relative';
         rectThree.style.top = '50%';
-        rectThree.style.transform = 'translateX(-50%) translateY(101%)';
+        rectThree.style.transform = 'translateX(-50%) translateY(17%)';
         rectThree.style.zIndex = 5;
-        sparsityBox.style.transform = 'translateY(150%)'; // Increase to move down
+        sparsityBox.style.transform = 'translateY(-40%)'; // Increase to move down
     } else if (rectThreeTop <= 0) {
-        console.log('Setting position to fixed');
+        // console.log('Setting position to fixed');
         rectThree.style.position = 'fixed';
         rectThree.style.top = `0px`;
         rectThree.style.transform = 'translateX(-50%) translateY(0%)';
         rectThree.style.zIndex = 5;
-        sparsityBox.style.transform = 'translateY(375%)';
+        sparsityBox.style.transform = 'translateY(185%)';
     }
 
-    console.log('SUM OF VALUES:', initialSumValue);
-    console.log('- Sparsity Top:', sparsityTop);
+    // Handle rect-four positioning
+    if (window.scrollY < currentSumValue4) {
+        console.log('Resetting position to relative');
+        rectFour.style.position = 'relative';
+        rectFour.style.top = '50%';
+        rectFour.style.transform = 'translateX(-50%) translateY(100%)';
+        rectFour.style.zIndex = 7;
+        // sparsityBox.style.transform = 'translateY(150%)'; // Increase to move down
+    } else if (rectFourTop <= 0) {
+        console.log('Setting position to fixed');
+        rectFour.style.position = 'fixed';
+        rectFour.style.top = `0px`;
+        rectFour.style.transform = 'translateX(-50%) translateY(0%)';
+        rectFour.style.zIndex = 7;
+        // sparsityBox.style.transform = 'translateY(375%)';
+    }
 }
 
 // Add event listener for scroll
