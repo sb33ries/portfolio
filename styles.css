@@ -91,7 +91,7 @@ main {
     margin: 0;
     font-size: 180px;
     z-index: 1; /* Behind the rectangle but above the background */
-    top: 25%;
+    top: 19%;
     /* color: transparent; */
     -webkit-text-stroke: 0px var(--first-rect-font); /* Adds a black outline to the text */
 }
@@ -103,7 +103,7 @@ main {
     margin: 0;
     font-size: 180px;
     z-index: 3; /* Behind the rectangle but above the background */
-    top: 50%;
+    top:49%;
     /* color: transparent; */
     -webkit-text-stroke: 0px var(--first-rect-font); /* Adds a black outline to the text */
 }
@@ -117,26 +117,26 @@ main {
 
 
 #rect-one {
-    width: 300px; /* Set the width and height to be the same for a sphere */
-    height: 210px;
-    right: 0;
+    width: 1200px; /* Set the width and height to be the same for a sphere */
+    height: 100px;
+    top: 13%; /* Center vertically */
+    left: 60%; /* Center horizontally */
     background-color: var(--first-rect-bg); /* Color of the sphere */
     color: var(--first-rect-font);
-    position: relative; /* Ensures it is fixed to the right side of the screen */
-    top: 50%; /* Center vertically based on the top position */
-    transform: translateX(215%) translateY(170%); /* Center it vertically */
+    position: absolute; /* Ensures it is fixed to the right side of the screen */
+    transform: translate(-60%, -60%);
     z-index: 2; /* Ensures the sphere covers the fixed text */
     display: flex;
     align-items: center;
     justify-content: justify;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    padding: 20px; /* Padding inside the rectangle */
+    /* box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); */
+    padding: 0px; /* Padding inside the rectangle */
     box-sizing: border-box;
     transition: background-color 0.5s, color 0.5s;
 }
 
 .spacer1 {
-    height: 700px; /* Height of the space */
+    height: 900px; /* Height of the space */
 }
 
 .spacer2 {
@@ -257,7 +257,7 @@ main {
     position: relative;
     top: 50%;
     left: 8%;
-    /* transform: translateY(300%); */
+    transform: translateY(210%);
     z-index: 6;
     display: flex;
     align-items: flex-end;
@@ -302,7 +302,7 @@ main {
     position: relative;
     top: 50%;
     left: 63%;
-    transform: translateY(150%);
+    transform: translateY(170%);
     z-index: 6;
     display: flex;
     align-items: flex-end;
@@ -347,7 +347,7 @@ main {
     position: relative;
     top: 50%;
     left: 17%;
-    transform: translateY(185%);
+    transform: translateY(205%);
     z-index: 6;
     display: flex;
     align-items: flex-end;
@@ -392,7 +392,7 @@ main {
     position: relative;
     top: 50%;
     left: 58%;
-    transform: translateY(120%); 
+    transform: translateY(135%); 
     z-index: 6;
     display: flex;
     align-items: flex-end;
@@ -500,7 +500,7 @@ main {
 /* Keyframes for outer ripple */
 @keyframes ripple-outer-effect {
     to {
-        transform: scale(20); /* Larger scale */
+        transform: scale(18); /* Larger scale */
         opacity: 0;
     }
 }
@@ -510,7 +510,7 @@ main {
 ::-webkit-scrollbar {
     width: 12px;
     transition: background-color 0.5s, border 0.5s;
-    z-index: -1;
+    z-index: 1;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -523,7 +523,7 @@ main {
 ::-webkit-scrollbar-track {
     background-color: transparent; /* Track color matches the background */
     transition: background-color 0.5s, border 0.5s;
-    z-index: -1;
+    z-index: 1;
 }
 
 /* Firefox support */
@@ -551,8 +551,8 @@ body {
     height: 100px;
     position: relative;
     overflow: hidden;
-    background-color: var(--first-rect-bg);
-    transform: translateY(-7%);
+    background-color: transparent;
+    /* transform: translateY(-7%); */
     border-top: 2px solid var(--first-rect-font);
     border-bottom: 2px solid var(--first-rect-font);
     font-size: 18px;
@@ -565,14 +565,14 @@ body {
     top: 0;
     left: 0;
     white-space: nowrap;
-    animation: marquee 45s linear infinite;
+    animation: marquee 48s linear infinite;
 }
 .marquee span {
     display: inline-block;
     padding: 35px 40px;
     padding-top: 20px;
-    padding-bottom: 25px;
-    font-size: 3em;
+    padding-bottom: 40px;
+    font-size: 2.5em;
 }
 @keyframes marquee {
     0% {

@@ -136,50 +136,30 @@ function handleScroll() {
 
     // Calculate current sums
     const currentSumValue3 = initialPositionsSet ? initialRectThreeTop : null;
-    const currentSumValue4 = initialPositionsSet ? initialRectFourTop : null;
 
     // Debugging logs
     console.log('rectThreeTop:', rectThreeTop);
-    // console.log('rectFourTop:', rectFourTop);
     console.log('headerBottom:', headerBottom);
     console.log('window.scrollY:', window.scrollY);
     console.log('SUM OF VALUES3:', currentSumValue3);
-    // console.log('SUM OF VALUES4:', currentSumValue4);
     console.log('- Sparsity Top:', sparsityTop);
 
     // Handle rect-three positioning
-    if (window.scrollY < currentSumValue3 + 130) {
+    if (window.scrollY -0 < currentSumValue3) {
         // console.log('Resetting position to relative');
         rectThree.style.position = 'relative';
         rectThree.style.top = '50%';
-        rectThree.style.transform = 'translateX(-50%) translateY(17%)';
+        rectThree.style.transform = 'translateX(-50%) translateY(16%)';
         rectThree.style.zIndex = 5;
-        sparsityBox.style.transform = 'translateY(-40%)'; // Increase to move down
-    } else if (rectThreeTop <= 0) {
+        // sparsityBox.style.transform = 'translateY(-40%)'; // Increase to move down
+    } else if (rectThreeTop <= 70) {
         // console.log('Setting position to fixed');
         rectThree.style.position = 'fixed';
-        rectThree.style.top = `0px`;
-        rectThree.style.transform = 'translateX(-50%) translateY(0%)';
+        rectThree.style.top = `0%`;
+        rectThree.style.transform = 'translateX(-50%) translateY(8%)';
         rectThree.style.zIndex = 5;
-        sparsityBox.style.transform = 'translateY(185%)';
+        // sparsityBox.style.transform = 'translateY(185%)';
     }
-
-    // Handle rect-four positioning
-    // if (window.scrollY < currentSumValue4) {
-    //     console.log('Resetting position to relative');
-    //     rectFour.style.position = 'relative';
-    //     rectFour.style.top = '50%';
-    //     rectFour.style.transform = 'translateX(-50%) translateY(100%)';
-    //     rectFour.style.zIndex = 7;
-    //     // sparsityBox.style.transform = 'translateY(150%)'; // Increase to move down
-    // } else if (rectFourTop <= 0) {
-    //     console.log('Setting position to fixed');
-    //     rectFour.style.position = 'fixed';
-    //     rectFour.style.top = `0px`;
-    //     rectFour.style.transform = 'translateX(-50%) translateY(0%)';
-    //     rectFour.style.zIndex = 7;
-    //     // sparsityBox.style.transform = 'translateY(375%)';
-    // }
 }
 
 // Add event listener for scroll
