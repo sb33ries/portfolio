@@ -1,6 +1,4 @@
-change ripples?
-Fix track background transition and z-index.
+Add scroll down and up to fix jump in scroll bar.
 
-Fix scroll from projects going up. There's like a small jump in the scroll bar now
-Add a loading screen
 Make the Learn more work for rect-two
+Get other index htmls to work
