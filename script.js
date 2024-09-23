@@ -113,17 +113,41 @@ function applyTheme() {
 let initialRectThreeTop = null;
 let initialRectFourTop = null;
 let initialPositionsSet = false;
+let lastScrollY = window.scrollY; // To keep track of the previous scroll position
+
+function handleScrollUp() {
+    const rectThree = document.getElementById('rect-three');
+    const rectThreeTop = rectThree.getBoundingClientRect().top;
+
+    if (window.scrollY - 30 < initialRectThreeTop) {
+        // Reset position to relative when scrolling up
+        rectThree.style.position = 'relative';
+        rectThree.style.top = '5%';
+        rectThree.style.transform = 'translateX(-50%) translateY(16%)';
+        rectThree.style.zIndex = 5;
+    }
+}
+
+function handleScrollDown() {
+    const rectThree = document.getElementById('rect-three');
+    const rectThreeTop = rectThree.getBoundingClientRect().top;
+
+    if (rectThreeTop <= 70) {
+        // Set position to fixed when scrolling down
+        rectThree.style.position = 'fixed';
+        rectThree.style.top = `9%`;
+        rectThree.style.transform = 'translateX(-50%) translateY(0%)';
+        rectThree.style.zIndex = 5;
+    }
+}
 
 function handleScroll() {
     const rectThree = document.getElementById('rect-three');
     const rectThreeTop = rectThree.getBoundingClientRect().top;
-    
     const rectFour = document.getElementById('rect-four');
     const rectFourTop = rectFour.getBoundingClientRect().top;
-
     const sparsityBox = document.getElementById('sparsity-box');
     const sparsityTop = sparsityBox.getBoundingClientRect().top;
-
     const header = document.querySelector('header');
     const headerBottom = header.getBoundingClientRect().bottom;
 
@@ -134,32 +158,14 @@ function handleScroll() {
         initialPositionsSet = true;
     }
 
-    // Calculate current sums
-    const currentSumValue3 = initialPositionsSet ? initialRectThreeTop : null;
-
-    // Debugging logs
-    console.log('rectThreeTop:', rectThreeTop);
-    console.log('headerBottom:', headerBottom);
-    console.log('window.scrollY:', window.scrollY);
-    console.log('SUM OF VALUES3:', currentSumValue3);
-    console.log('- Sparsity Top:', sparsityTop);
-
-    // Handle rect-three positioning
-    if (window.scrollY -0 < currentSumValue3) {
-        // console.log('Resetting position to relative');
-        rectThree.style.position = 'relative';
-        rectThree.style.top = '50%';
-        rectThree.style.transform = 'translateX(-50%) translateY(16%)';
-        rectThree.style.zIndex = 5;
-        // sparsityBox.style.transform = 'translateY(-40%)'; // Increase to move down
-    } else if (rectThreeTop <= 70) {
-        // console.log('Setting position to fixed');
-        rectThree.style.position = 'fixed';
-        rectThree.style.top = `0%`;
-        rectThree.style.transform = 'translateX(-50%) translateY(8%)';
-        rectThree.style.zIndex = 5;
-        // sparsityBox.style.transform = 'translateY(185%)';
+    // Calculate scroll direction
+    if (window.scrollY < lastScrollY) {
+        handleScrollUp(); // Scroll up
+    } else if (window.scrollY > lastScrollY) {
+        handleScrollDown(); // Scroll down
     }
+
+    lastScrollY = window.scrollY; // Update the last scroll position
 }
 
 // Add event listener for scroll
@@ -167,6 +173,7 @@ window.addEventListener('scroll', handleScroll);
 
 // Initial call to set correct positions
 handleScroll();
+
 
 // Set random initial theme on page load
 setRandomInitialTheme();
