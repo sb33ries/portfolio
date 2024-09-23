@@ -590,7 +590,7 @@ body {
 }
 
 #programming-skills .container {
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     text-align: center;
 }
@@ -609,23 +609,19 @@ body {
 }
 
 .skill {
-    flex: 1 1 calc(12% - 20px); /* Each skill item will take about 12% of the container */
-    max-width: 150px; /* Ensure a maximum width */
+    flex: 1 1 calc(20% - 20px); /* Each skill item will take about 12% of the container */
+    max-width: 200px; /* Ensure a maximum width */
     text-align: center;
     margin-bottom: 20px;
 }
 
 .skill img {
-    width: 80px;
-    height: 80px;
+    max-width: 100%; /* Ensures the image maintains its aspect ratio */
+    height: auto; /* Maintain the original height-to-width ratio */
     margin-bottom: 10px;
     transition: transform 0.3s;
 }
 
-.skill p {
-    font-size: 1.2rem;
-    color: var(--scrollbar-thumb);
-}
 
 .skill img:hover {
     transform: scale(1.1);

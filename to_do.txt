@@ -2,3 +2,6 @@ Add scroll down and up to fix jump in scroll bar.
 
 Make the Learn more work for rect-two
 Get other index htmls to work
+
+Logos aren't the same sizes
+Get better images for some of them
