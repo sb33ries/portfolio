@@ -501,7 +501,7 @@ function proceedToSimplified() {
 // Switch to simplified view from full portfolio (desktop only)
 function switchToSimplified() {
     document.getElementById('portfolio-container').classList.remove('active');
-    document.getElementById('portfolio-container').style.display = 'none';
+    document.getElementById('portfolio-container').style.display = '';
     document.getElementById('folder-closed').style.display = 'none';
     document.getElementById('simplified-view').classList.add('active');
     // Close CT viewer if it's open
@@ -527,9 +527,9 @@ function returnToFull() {
     // document.body.style.overflow = 'hidden';
     // document.documentElement.style.height = '100vh';
     
-    document.getElementById('folder-closed').style.display = 'none';
+    document.getElementById('folder-closed').style.display = '';
     document.getElementById('folder-closed').classList.add('hidden');
-    document.getElementById('portfolio-container').style.display = 'block';
+    document.getElementById('portfolio-container').style.display = '';
     document.getElementById('portfolio-container').classList.add('active');
     // Reinitialize viewers based on current tab
     if (window.currentTab === 'research') {

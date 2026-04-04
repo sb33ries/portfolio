@@ -317,13 +317,16 @@ body {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 15px;
     margin-top: 15px;
+    align-items: stretch;
 }
 
 .simplified-art {
     width: 100%;
-    height: auto;
-    border: 2px solid #8b7355;
-    border-radius: 4px;
+    height: 250px;        /* 👈 pick a fixed height */
+    object-fit: cover;    /* 👈 crops to fill rectangle */
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    display: block;
 }
 
 /* 3D Heart Viewer Styles */
