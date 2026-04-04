@@ -54,6 +54,7 @@ function openFolder() {
     document.getElementById('folder-closed').classList.add('hidden');
     setTimeout(() => {
         document.getElementById('portfolio-container').classList.add('active');
+        switchTab('about', document.querySelector('[onclick*="about"]'));
         updateFolderTilt();
     }, 500);
 }
@@ -89,11 +90,11 @@ function closeFolder() {
         tabs.forEach(tab => tab.classList.remove('active'));
         pages.forEach(page => page.classList.remove('active'));
 
-        tabs[0].classList.add('active');
-        document.getElementById('welcome').classList.add('active');
+        tabs[1].classList.add('active');
+        document.getElementById('about').classList.add('active');
         
         // Reset current tab tracker
-        window.currentTab = 'welcome';
+        window.currentTab = 'about';
         
         updateFolderTilt();
     }, 800);
