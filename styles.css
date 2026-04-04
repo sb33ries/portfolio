@@ -846,14 +846,12 @@ li {
 
 .project-gif-container {
     flex-shrink: 0;
-    width: 350px;
+    width: 370px;
 }
-
-
 
 .project-gif {
     width: 100%;
-    height: auto;
+    height: 250px;
     border: 2px solid rgba(139, 69, 19, 0.3);
     border-radius: 4px;
 }
